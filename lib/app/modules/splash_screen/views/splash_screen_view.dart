@@ -54,18 +54,25 @@ class SplashScreenView extends GetView<SplashScreenController> {
                   ),
                 ),
                 const SizedBox(height: 20),
-                RichText(
-                  text: const TextSpan(
-                    text: 'Already have an account? ',
-                    style: AppTextStyles.labelLarge,
-                    children: [
-                      TextSpan(
-                        text: 'Log in',
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Already have an account? ',
+                      style: AppTextStyles.labelLarge
+                          .copyWith(fontWeight: FontWeight.w400),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Get.offNamed(Routes.AUTH_SCREEN);
+                      },
+                      child: Text(
+                        'Log in',
                         style: AppTextStyles.labelLargeBold,
                       ),
-                    ],
-                  ),
-                ),
+                    ),
+                  ],
+                )
               ],
             ),
             const SizedBox(height: 20), // Add some space at the bottom

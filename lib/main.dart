@@ -14,7 +14,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: Routes.SPLASH_SCREEN,
+      initialRoute: AppPages.INITIAL,
       getPages: AppPages.routes,
       title: 'e-Cycle',
       theme: AppThemes.lightTheme,

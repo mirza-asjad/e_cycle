@@ -38,6 +38,6 @@ class OnboardingScreenController extends GetxController {
 
   void getStarted() {
     // Implement the action when 'Get Started' is pressed
-    Get.toNamed(Routes.SPLASH_SCREEN);
+    Get.offNamed(Routes.AUTH_SCREEN);
   }
 }

@@ -7,6 +7,7 @@ abstract class Routes {
   static const ONBOARDING_SCREEN = _Paths.ONBOARDING_SCREEN;
   static const AUTH_SCREEN = _Paths.AUTH_SCREEN;
   static const VERIFY_OTP_SCREEN = _Paths.VERIFY_OTP_SCREEN;
+  static const HOME_SCREEN = _Paths.HOME_SCREEN;
 }
 
 abstract class _Paths {
@@ -15,4 +16,5 @@ abstract class _Paths {
   static const ONBOARDING_SCREEN = '/onboarding-screen';
   static const AUTH_SCREEN = '/auth-screen';
   static const VERIFY_OTP_SCREEN = '/verify-otp-screen';
+  static const HOME_SCREEN = '/home-screen';
 }

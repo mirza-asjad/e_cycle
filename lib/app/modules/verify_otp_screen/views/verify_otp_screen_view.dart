@@ -196,6 +196,7 @@ class VerifyOtpScreenView extends GetView<VerifyOtpScreenController> {
                 ReuseButtonWidget(
                   text: 'Verify',
                   onPressed: () {
+                    Get.toNamed(Routes.HOME_SCREEN);
                     print('Verify button pressed');
                   },
                 )

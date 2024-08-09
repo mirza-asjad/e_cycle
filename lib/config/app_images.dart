@@ -9,4 +9,11 @@ class AppImages {
   static const String CLOUDS_IMAGE = 'assets/icon/cloudly.png';
   static const String SEARCH_ICON = 'assets/icon/search_icon.png';
   static const String LOGOUT_ICON = 'assets/icon/log-out.png';
+  static const String NAVIGATION_ICON = 'assets/icon/navigation.png';
+  static const String PIN_ICON = 'assets/icon/pin.png';
+  static const String RIDER_IMAGE = 'assets/icon/rider.png';
+  static const String CIRCULAR_GRADIENT = 'assets/icon/circularpattern.png';
+  static const String PATTERN = 'assets/icon/pattern.png';
+  static const String MASTER_LOGO = 'assets/icon/masterlogo.png';
+  static const String APPLE_LOGO = 'assets/icon/apple.png';
 }

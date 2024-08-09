@@ -157,7 +157,17 @@ class CustomDrawer extends StatelessWidget {
               )
             : null,
         onTap: () {
-          // Handle navigation
+          if (title == 'My Wallet') {
+            Get.toNamed(Routes.MY_WALLET_SCREEN);
+          } else if (title == 'My Statics') {
+            // Get.toNamed(Routes.MY_STATICS_SCREEN);
+          } else if (title == 'Invite Friends') {
+            // Get.toNamed(Routes.INVITE_FRIENDS_SCREEN);
+          } else if (title == 'Support') {
+            // Get.toNamed(Routes.SUPPORT_SCREEN);
+          } else if (title == 'Settings') {
+            // Get.toNamed(Routes.SETTINGS_SCREEN);
+          }
         },
       ),
     );

@@ -1,3 +1,4 @@
+import 'package:e_cycle/app/routes/app_pages.dart';
 import 'package:e_cycle/config/app_colors.dart';
 import 'package:e_cycle/config/app_fonts.dart';
 import 'package:e_cycle/config/app_images.dart';
@@ -56,7 +57,7 @@ class HomeScreenView extends GetView<HomeScreenController> {
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             color: Colors.white, // Background color for the circle
-            image: DecorationImage(
+            image: const DecorationImage(
               image: AssetImage(
                   AppImages.ONBOARDING_UNLOCK), // Replace with your image
               fit: BoxFit.cover,
@@ -67,10 +68,16 @@ class HomeScreenView extends GetView<HomeScreenController> {
             ),
           ),
         ),
-        SizedBox(
-          height: 24,
-          width: 24,
-          child: Image.asset(AppImages.SEARCH_ICON),
+        GestureDetector(
+          onTap: () => Get.toNamed(Routes.SEARCH_SCREEN),
+          child: Hero(
+            tag: 'searchIconHero',
+            child: SizedBox(
+              height: 24,
+              width: 24,
+              child: Image.asset(AppImages.SEARCH_ICON),
+            ),
+          ),
         )
       ],
     );

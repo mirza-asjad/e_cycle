@@ -37,8 +37,10 @@ class ReuseButtonWidget extends StatelessWidget {
         ),
         child: Text(
           text,
-          style: AppTextStyles.labelLarge
-              .copyWith(fontSize: 21, fontFamily: AppFonts.MONTSERRAT_REGULAR),
+          style: AppTextStyles.labelLarge.copyWith(
+              fontSize: 21,
+              fontWeight: FontWeight.w300,
+              fontFamily: AppFonts.MONTSERRAT_REGULAR),
         ),
       ),
     );

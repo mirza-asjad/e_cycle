@@ -267,21 +267,24 @@ class MyWalletScreenView extends GetView<MyWalletScreenController> {
                       color: AppColors.BUTTON_COLOR, // Title text color
                     ),
                   ),
-                  trailing: Container(
-                    width: 114, // Adjust width as needed
-                    height: 40, // Adjust height as needed
-                    decoration: BoxDecoration(
-                      color: Color(0x1FB0B0B0),
-                      borderRadius: BorderRadius.circular(12.0),
-                    ),
-                    child: Center(
-                      child: Text(
-                        'Top Up',
-                        style: TextStyle(
-                          color: AppColors.BUTTON_COLOR, // Button text color
-                          fontFamily: AppFonts.MONTSERRAT_SEMIBOLD,
-                          fontWeight: FontWeight.w800,
-                          fontSize: 15, // Adjust font size as needed
+                  trailing: GestureDetector(
+                    onTap: () => Get.toNamed(Routes.TOP_UP_SCREEN),
+                    child: Container(
+                      width: 114, // Adjust width as needed
+                      height: 40, // Adjust height as needed
+                      decoration: BoxDecoration(
+                        color: Color(0x1FB0B0B0),
+                        borderRadius: BorderRadius.circular(12.0),
+                      ),
+                      child: Center(
+                        child: Text(
+                          'Top Up',
+                          style: TextStyle(
+                            color: AppColors.BUTTON_COLOR, // Button text color
+                            fontFamily: AppFonts.MONTSERRAT_SEMIBOLD,
+                            fontWeight: FontWeight.w800,
+                            fontSize: 15, // Adjust font size as needed
+                          ),
                         ),
                       ),
                     ),

@@ -159,14 +159,14 @@ class CustomDrawer extends StatelessWidget {
         onTap: () {
           if (title == 'My Wallet') {
             Get.toNamed(Routes.MY_WALLET_SCREEN);
-          } else if (title == 'My Statics') {
+          } else if (title == 'My Statistics') {
             Get.toNamed(Routes.MY_STATISTICS_SCREEN);
           } else if (title == 'Invite Friends') {
             Get.toNamed(Routes.INVITE_FRIENDS_SCREEN);
           } else if (title == 'Support') {
-            // Get.toNamed(Routes.SUPPORT_SCREEN);
+            Get.toNamed(Routes.SUPPORT_SCREEN);
           } else if (title == 'Settings') {
-            // Get.toNamed(Routes.SETTINGS_SCREEN);
+            Get.toNamed(Routes.SETTINGS_SCREEN);
           }
         },
       ),

@@ -22,4 +22,5 @@ class AppImages {
   static const String DISTANCE_ICON = 'assets/icon/distance.png';
   static const String CLOCK_ICON = 'assets/icon/clock.png';
   static const String PATH_ICON = 'assets/icon/Path.png';
+  static const String MAIL_ICON = 'assets/icon/mail.png';
 }

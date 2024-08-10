@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-
-import '../controllers/invite_friends_contacts_screen_controller.dart';
+import '../controllers/settings_screen_controller.dart';
 import 'package:e_cycle/config/app_colors.dart';
 import 'package:e_cycle/config/app_fonts.dart';
-import 'package:e_cycle/config/app_images.dart';
 
-class InviteFriendsContactsScreenView
-    extends GetView<InviteFriendsContactsScreenController> {
-  const InviteFriendsContactsScreenView({Key? key}) : super(key: key);
+class SettingsScreenView extends GetView<SettingsScreenController> {
+  const SettingsScreenView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +31,8 @@ class InviteFriendsContactsScreenView
           body: Stack(
             children: [
               _buildHeader(),
-              _buildEmptyContentContainer(screenHeight),
+              _buildContentContainer(screenHeight),
+              // Place this last to bring it on top
             ],
           ),
         ),
@@ -66,7 +63,7 @@ class InviteFriendsContactsScreenView
           ),
           const Spacer(),
           Text(
-            'Invite Contacts',
+            'Settings',
             style: TextStyle(
               fontSize: 21,
               fontFamily: AppFonts.MONTSERRAT_SEMIBOLD,
@@ -82,7 +79,7 @@ class InviteFriendsContactsScreenView
     );
   }
 
-  Widget _buildEmptyContentContainer(double screenHeight) {
+  Widget _buildContentContainer(double screenHeight) {
     return Positioned(
       bottom: 0,
       left: 0,
@@ -95,86 +92,79 @@ class InviteFriendsContactsScreenView
             topLeft: Radius.circular(75.0),
           ),
         ),
-        child: ListView(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
+        child: Column(
           children: [
-            _buildContactSection('A', [
-              _buildContactTile('Asjad', AppImages.PATTERN),
-              _buildContactTile('Awais', AppImages.PATTERN),
-            ]),
-            Divider(color: Colors.grey.withOpacity(0.3)),
-            _buildContactSection('B', [
-              _buildContactTile('Bashart', AppImages.PATTERN),
-              // Add more contact tiles as needed
-            ]),
+            const SizedBox(height: 32),
+            _firstTile('Phone Number', '406 765 43 92'),
+            _firstTile('Favourite Address', 'Marbella'),
+            _firstTile('Language', 'English'),
+            const SizedBox(height: 16),
+            _settingsTile('Payment', controller.isNotificationSwitchOn),
+            _settingsTile('Traffic', controller.isTrafficSwitchOn),
           ],
         ),
       ),
     );
   }
 
-  Widget _buildContactSection(String heading, List<Widget> contactTiles) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Container(
-          padding: const EdgeInsets.only(top: 26, left: 10),
-          child: Text(
-            heading,
+  Widget _firstTile(String title, String subtitle) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: Container(
+        child: ListTile(
+          title: Text(
+            title,
             style: TextStyle(
-              fontSize: 21,
+              fontSize: 18,
+              fontFamily: AppFonts.MONTSERRAT_REGULAR,
+              fontWeight: FontWeight.w300,
+              color: AppColors.BUTTON_COLOR,
+            ),
+          ),
+          subtitle: Text(
+            subtitle,
+            style: TextStyle(
+              fontSize: 18,
+              fontFamily: AppFonts.MONTSERRAT_REGULAR,
+              fontWeight: FontWeight.w900,
+              color: AppColors.BUTTON_COLOR,
+            ),
+          ),
+          trailing: IconButton(
+              onPressed: () {},
+              icon: Icon(
+                Icons.arrow_forward_ios_rounded,
+                color: AppColors.BUTTON_COLOR.withOpacity(0.5),
+              )),
+        ),
+      ),
+    );
+  }
+
+  Widget _settingsTile(String title, RxBool switchValue) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: Container(
+        child: ListTile(
+          title: Text(
+            title,
+            style: TextStyle(
+              fontSize: 18,
               fontWeight: FontWeight.w300,
               fontFamily: AppFonts.MONTSERRAT_REGULAR,
               color: AppColors.BUTTON_COLOR,
             ),
           ),
-        ),
-        SizedBox(height: 12), // Add spacing between heading and contacts
-        ...contactTiles,
-      ],
-    );
-  }
-
-  Widget _buildContactTile(String name, String imagePath) {
-    return ListTile(
-      contentPadding: const EdgeInsets.symmetric(vertical: 8),
-      leading: CircleAvatar(
-        backgroundImage: AssetImage(imagePath),
-        radius: 32, // Adjusted radius to 64x64 size
-      ),
-      title: Text(
-        name,
-        style: TextStyle(
-          fontFamily: AppFonts.MONTSERRAT_REGULAR,
-          fontSize: 18,
-        ),
-      ),
-      trailing: GestureDetector(
-        onTap: () {
-          // Define the action for the 'Send' button
-        },
-        child: Container(
-          height: 32,
-          width: 80,
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                Color(0xFF2AF598), // Example gradient color 1
-                Color(0xFF009EFD), // Example gradient color 2
-              ],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-            ),
-            borderRadius: BorderRadius.circular(20),
-          ),
-          alignment: Alignment.center,
-          child: Text(
-            'Send',
-            style: TextStyle(
-              color: AppColors.BUTTON_COLOR, // Text color
-              fontFamily: AppFonts.MONTSERRAT_REGULAR,
-              fontWeight: FontWeight.bold,
-              fontSize: 12,
+          trailing: Obx(
+            () => Switch(
+              value: switchValue.value,
+              onChanged: (bool value) {
+                switchValue.value = value;
+              },
+              activeColor: Colors.white,
+              activeTrackColor: Color.fromARGB(255, 118, 214, 166),
+              inactiveThumbColor: Colors.grey,
+              inactiveTrackColor: Colors.white,
             ),
           ),
         ),

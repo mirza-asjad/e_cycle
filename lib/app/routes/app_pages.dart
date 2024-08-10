@@ -18,8 +18,14 @@ import '../modules/payment_screen/bindings/payment_screen_binding.dart';
 import '../modules/payment_screen/views/payment_screen_view.dart';
 import '../modules/search_screen/bindings/search_screen_binding.dart';
 import '../modules/search_screen/views/search_screen_view.dart';
+import '../modules/settings_screen/bindings/settings_screen_binding.dart';
+import '../modules/settings_screen/views/settings_screen_view.dart';
 import '../modules/splash_screen/bindings/splash_screen_binding.dart';
 import '../modules/splash_screen/views/splash_screen_view.dart';
+import '../modules/support_request_screen/bindings/support_request_screen_binding.dart';
+import '../modules/support_request_screen/views/support_request_screen_view.dart';
+import '../modules/support_screen/bindings/support_screen_binding.dart';
+import '../modules/support_screen/views/support_screen_view.dart';
 import '../modules/top_up_screen/bindings/top_up_screen_binding.dart';
 import '../modules/top_up_screen/views/top_up_screen_view.dart';
 import '../modules/verify_otp_screen/bindings/verify_otp_screen_binding.dart';
@@ -92,6 +98,21 @@ class AppPages {
       name: _Paths.INVITE_FRIENDS_CONTACTS_SCREEN,
       page: () => const InviteFriendsContactsScreenView(),
       binding: InviteFriendsContactsScreenBinding(),
+    ),
+    GetPage(
+      name: _Paths.SUPPORT_SCREEN,
+      page: () => const SupportScreenView(),
+      binding: SupportScreenBinding(),
+    ),
+    GetPage(
+      name: _Paths.SUPPORT_REQUEST_SCREEN,
+      page: () => const SupportRequestScreenView(),
+      binding: SupportRequestScreenBinding(),
+    ),
+    GetPage(
+      name: _Paths.SETTINGS_SCREEN,
+      page: () => const SettingsScreenView(),
+      binding: SettingsScreenBinding(),
     ),
   ];
 }

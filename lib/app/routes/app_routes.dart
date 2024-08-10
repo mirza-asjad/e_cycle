@@ -16,6 +16,9 @@ abstract class Routes {
   static const INVITE_FRIENDS_SCREEN = _Paths.INVITE_FRIENDS_SCREEN;
   static const INVITE_FRIENDS_CONTACTS_SCREEN =
       _Paths.INVITE_FRIENDS_CONTACTS_SCREEN;
+  static const SUPPORT_SCREEN = _Paths.SUPPORT_SCREEN;
+  static const SUPPORT_REQUEST_SCREEN = _Paths.SUPPORT_REQUEST_SCREEN;
+  static const SETTINGS_SCREEN = _Paths.SETTINGS_SCREEN;
 }
 
 abstract class _Paths {
@@ -33,4 +36,7 @@ abstract class _Paths {
   static const INVITE_FRIENDS_SCREEN = '/invite-friends-screen';
   static const INVITE_FRIENDS_CONTACTS_SCREEN =
       '/invite-friends-contacts-screen';
+  static const SUPPORT_SCREEN = '/support-screen';
+  static const SUPPORT_REQUEST_SCREEN = '/support-request-screen';
+  static const SETTINGS_SCREEN = '/settings-screen';
 }

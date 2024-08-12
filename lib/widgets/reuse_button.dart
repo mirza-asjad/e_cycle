@@ -1,4 +1,4 @@
-import 'package:e_cycle/config/app_fonts.dart';
+
 import 'package:e_cycle/config/app_text_style.dart';
 import 'package:flutter/material.dart';
 
@@ -35,13 +35,8 @@ class ReuseButtonWidget extends StatelessWidget {
             borderRadius: BorderRadius.circular(35), // Match border radius
           ),
         ),
-        child: Text(
-          text,
-          style: AppTextStyles.labelLarge.copyWith(
-              fontSize: 21,
-              fontWeight: FontWeight.w300,
-              fontFamily: AppFonts.MONTSERRAT_REGULAR),
-        ),
+        child: Text(text,
+            style: AppTextStyles.labelMediumRegular.copyWith(fontSize: 21)),
       ),
     );
   }

@@ -15,9 +15,6 @@ class AuthScreenView extends GetView<AuthScreenController> {
   @override
   Widget build(BuildContext context) {
     final double screenHeight = MediaQuery.of(context).size.height;
-
-    final ValueNotifier<bool> isLogin = ValueNotifier<bool>(true);
-
     final TextEditingController phoneController = TextEditingController();
     PhoneNumber initialNumber = PhoneNumber(isoCode: 'PK'); // Adjust as needed
 
@@ -36,13 +33,12 @@ class AuthScreenView extends GetView<AuthScreenController> {
           ),
         ),
         Scaffold(
-          resizeToAvoidBottomInset: true,
+          resizeToAvoidBottomInset: false,
           backgroundColor: Colors.transparent,
           body: Stack(
             children: [
-              _buildHeader(isLogin),
-              _buildContentContainer(context, screenHeight, isLogin,
-                  phoneController, initialNumber),
+              _buildHeader(),
+              _buildContentContainer(context, phoneController, initialNumber),
             ],
           ),
         ),
@@ -50,7 +46,7 @@ class AuthScreenView extends GetView<AuthScreenController> {
     );
   }
 
-  Widget _buildHeader(ValueNotifier<bool> isLogin) {
+  Widget _buildHeader() {
     return Positioned(
       top: 100,
       left: 25,
@@ -58,25 +54,19 @@ class AuthScreenView extends GetView<AuthScreenController> {
       child: Row(
         children: [
           GestureDetector(
-            onTap: () => isLogin.value = true,
-            child: ValueListenableBuilder<bool>(
-              valueListenable: isLogin,
-              builder: (context, value, child) => _buildTab(
-                'Log in',
-                isActive: value,
-              ),
-            ),
+            onTap: () => controller.isLogin.value = true,
+            child: Obx(() => _buildTab(
+                  'Log in',
+                  isActive: controller.isLogin.value,
+                )),
           ),
           const SizedBox(width: 20),
           GestureDetector(
-            onTap: () => isLogin.value = false,
-            child: ValueListenableBuilder<bool>(
-              valueListenable: isLogin,
-              builder: (context, value, child) => _buildTab(
-                'Sign up',
-                isActive: !value,
-              ),
-            ),
+            onTap: () => controller.isLogin.value = false,
+            child: Obx(() => _buildTab(
+                  'Sign up',
+                  isActive: !controller.isLogin.value,
+                )),
           ),
         ],
       ),
@@ -113,22 +103,13 @@ class AuthScreenView extends GetView<AuthScreenController> {
     );
   }
 
-  Widget _buildContentContainer(
-      BuildContext context,
-      double screenHeight,
-      ValueNotifier<bool> isLogin,
-      TextEditingController phoneController,
-      PhoneNumber initialNumber) {
-    // Adjust height based on keyboard visibility
-    final keyboardHeight = MediaQuery.of(context).viewInsets.bottom;
-    final containerHeight = screenHeight * 0.8 - keyboardHeight;
-
+  Widget _buildContentContainer(BuildContext context,
+      TextEditingController phoneController, PhoneNumber initialNumber) {
     return Positioned(
       bottom: 0,
       left: 0,
       right: 0,
       child: Container(
-        height: containerHeight,
         decoration: const BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.only(
@@ -136,21 +117,18 @@ class AuthScreenView extends GetView<AuthScreenController> {
           ),
         ),
         child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                const SizedBox(height: 20),
-                ValueListenableBuilder<bool>(
-                  valueListenable: isLogin,
-                  builder: (context, isLoginValue, child) {
-                    return isLoginValue
+          child: ConstrainedBox(
+            constraints: BoxConstraints(
+              minHeight: MediaQuery.of(context).size.height * 0.8,
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Obx(() => AnimatedSwitcher(
+                    duration: const Duration(milliseconds: 300),
+                    child: controller.isLogin.value
                         ? _buildLoginContent(phoneController, initialNumber)
-                        : _buildSignUpContent(phoneController, initialNumber);
-                  },
-                ),
-              ],
+                        : _buildSignUpContent(phoneController, initialNumber),
+                  )),
             ),
           ),
         ),
@@ -160,73 +138,79 @@ class AuthScreenView extends GetView<AuthScreenController> {
 
   Widget _buildLoginContent(
       TextEditingController phoneController, PhoneNumber initialNumber) {
-    return Column(
-      children: [
-        const SizedBox(height: 20),
-        PhoneNumberInputWidget(
-          controller: phoneController,
-          initialNumber: initialNumber,
-          onInputChanged: (number) {
-            print('Login phone number changed: ${number.phoneNumber}');
-          },
-          onInputValidated: (isValid) {
-            print('Login phone number valid: $isValid');
-          },
-          onSaved: (number) {
-            print('Login phone number saved: $number');
-          },
-        ),
-        const SizedBox(height: 20),
-        Text(
-          'Login with your phone number',
-          style: AppTextStyles.labelSmall.copyWith(
-              color: AppColors.GREY_COLOR.withOpacity(0.6), fontSize: 16),
-        ),
-        const SizedBox(height: 120),
-        ReuseButtonWidget(
-          text: 'Log in',
-          onPressed: () {
-            Get.toNamed(Routes.VERIFY_OTP_SCREEN);
-            print('Log in button pressed');
-          },
-        )
-      ],
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const SizedBox(height: 20),
+          PhoneNumberInputWidget(
+            controller: phoneController,
+            initialNumber: initialNumber,
+            onInputChanged: (number) {
+              print('Login phone number changed: ${number.phoneNumber}');
+            },
+            onInputValidated: (isValid) {
+              print('Login phone number valid: $isValid');
+            },
+            onSaved: (number) {
+              print('Login phone number saved: $number');
+            },
+          ),
+          const SizedBox(height: 20),
+          Text(
+            'Login with your phone number',
+            style: AppTextStyles.labelMediumRegular,
+          ),
+          const SizedBox(height: 120),
+          ReuseButtonWidget(
+            text: 'Log in',
+            onPressed: () {
+              Get.toNamed(Routes.VERIFY_OTP_SCREEN);
+              print('Log in button pressed');
+            },
+          )
+        ],
+      ),
     );
   }
 
   Widget _buildSignUpContent(
       TextEditingController phoneController, PhoneNumber initialNumber) {
-    return Column(
-      children: [
-        const SizedBox(height: 20),
-        PhoneNumberInputWidget(
-          controller: phoneController,
-          initialNumber: initialNumber,
-          onInputChanged: (number) {
-            print('Sign up phone number changed: ${number.phoneNumber}');
-          },
-          onInputValidated: (isValid) {
-            print('Sign up phone number valid: $isValid');
-          },
-          onSaved: (number) {
-            print('Sign up phone number saved: $number');
-          },
-        ),
-        const SizedBox(height: 20),
-        Text(
-          'Sign up with your phone number',
-          style: AppTextStyles.labelSmall.copyWith(
-              color: AppColors.GREY_COLOR.withOpacity(0.6), fontSize: 16),
-        ),
-        const SizedBox(height: 120),
-        ReuseButtonWidget(
-          text: 'Sign up',
-          onPressed: () {
-            Get.toNamed(Routes.VERIFY_OTP_SCREEN);
-            print('Log in button pressed');
-          },
-        )
-      ],
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const SizedBox(height: 20),
+          PhoneNumberInputWidget(
+            controller: phoneController,
+            initialNumber: initialNumber,
+            onInputChanged: (number) {
+              print('Sign up phone number changed: ${number.phoneNumber}');
+            },
+            onInputValidated: (isValid) {
+              print('Sign up phone number valid: $isValid');
+            },
+            onSaved: (number) {
+              print('Sign up phone number saved: $number');
+            },
+          ),
+          const SizedBox(height: 20),
+          Text(
+            'Sign up with your phone number',
+            style: AppTextStyles.labelMediumRegular,
+          ),
+          const SizedBox(height: 120),
+          ReuseButtonWidget(
+            text: 'Sign up',
+            onPressed: () {
+              Get.toNamed(Routes.VERIFY_OTP_SCREEN);
+              print('Sign up button pressed');
+            },
+          )
+        ],
+      ),
     );
   }
 }

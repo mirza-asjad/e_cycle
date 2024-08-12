@@ -101,11 +101,8 @@ class VerifyOtpScreenView extends GetView<VerifyOtpScreenController> {
       left: 25,
       child: Text(
         'Verification',
-        style: TextStyle(
-          fontSize: 36,
-          fontFamily: AppFonts.MONTSERRAT_SEMIBOLD,
-          fontWeight: FontWeight.bold,
-          color: AppColors.BUTTON_COLOR.withOpacity(0.8),
+        style: AppTextStyles.labelMediumSemiBold.copyWith(
+          fontSize: 32,
         ),
         textAlign: TextAlign.left,
       ),
@@ -159,14 +156,13 @@ class VerifyOtpScreenView extends GetView<VerifyOtpScreenController> {
                 Text(
                   textAlign: TextAlign.center,
                   'Enter the code sent to your device to verify your identity.',
-                  style: AppTextStyles.labelSmall.copyWith(
-                      fontSize: 16, color: AppColors.LIGHT_BLACK_COLOR),
+                  style: AppTextStyles.labelSmallRegular.copyWith(fontSize: 16),
                 ),
                 const SizedBox(height: 20),
                 Text(
                   '+91 9876543210',
-                  style: AppTextStyles.labelSmall
-                      .copyWith(fontSize: 20, fontWeight: FontWeight.bold),
+                  style:
+                      AppTextStyles.labelMediumSemiBold.copyWith(fontSize: 18),
                 ),
                 const SizedBox(height: 20),
                 Center(
@@ -183,11 +179,8 @@ class VerifyOtpScreenView extends GetView<VerifyOtpScreenController> {
                       },
                       child: Text(
                         'Didn\'t receive the code?',
-                        style: AppTextStyles.labelSmall.copyWith(
-                          fontSize: 16,
-                          color: Colors
-                              .white, // Text color should be white or transparent
-                        ),
+                        style: AppTextStyles.labelMediumSemiBold
+                            .copyWith(fontSize: 18),
                       ),
                     ),
                   ),

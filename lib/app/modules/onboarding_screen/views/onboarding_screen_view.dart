@@ -61,21 +61,21 @@ class OnboardingScreenView extends GetView<OnboardingScreenController> {
                     onPressed: () {
                       controller.skipToNextScreen();
                     },
-                    child: const Text(
+                    child: Text(
                       'Skip',
-                      style: AppTextStyles.labelsmallLarge,
+                      style: AppTextStyles.labelMediumRegular,
                     ),
                   ),
                   Obx(() => Row(
                         children: List.generate(3, (index) {
                           return Container(
                             margin: const EdgeInsets.symmetric(horizontal: 4.0),
-                            width: 10.0,
-                            height: 10.0,
+                            width: 12.0,
+                            height: 12.0,
                             decoration: BoxDecoration(
                               color: controller.currentPage.value == index
                                   ? AppColors.BUTTON_COLOR
-                                  : AppColors.GREY_COLOR,
+                                  : AppColors.GREY_COLOR.withOpacity(0.2),
                               shape: BoxShape.circle,
                             ),
                           );
@@ -93,7 +93,7 @@ class OnboardingScreenView extends GetView<OnboardingScreenController> {
                           controller.currentPage.value == 2
                               ? 'Get Started'
                               : 'Next',
-                          style: AppTextStyles.labelLarge,
+                          style: AppTextStyles.labelMediumSemiBold,
                         ),
                       )),
                 ],

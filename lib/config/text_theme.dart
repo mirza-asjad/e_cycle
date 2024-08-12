@@ -6,9 +6,9 @@ class TextThemes {
   /// Main text theme
   static TextTheme get textTheme {
     return const TextTheme(
-      labelLarge: AppTextStyles.labelLarge,
-      labelMedium: AppTextStyles.labelMedium,
-      labelSmall: AppTextStyles.labelSmall,
+      labelLarge: AppTextStyles.labelMediumBold, // Updated
+      labelMedium: AppTextStyles.labelMediumRegular, // Updated
+      labelSmall: AppTextStyles.labelSmallBold, // Updated
       titleLarge: AppTextStyles.titleLarge,
       titleMedium: AppTextStyles.titleMedium,
       displaySmall: AppTextStyles.displaySmall,
@@ -18,9 +18,9 @@ class TextThemes {
   /// Dark text theme
   static TextTheme get darkTextTheme {
     return const TextTheme(
-      labelLarge: AppTextStyles.labelLarge,
-      labelMedium: AppTextStyles.labelMedium,
-      labelSmall: AppTextStyles.labelSmall,
+      labelLarge: AppTextStyles.labelMediumBold, // Updated
+      labelMedium: AppTextStyles.labelMediumRegular, // Updated
+      labelSmall: AppTextStyles.labelSmallBold, // Updated
       titleLarge: AppTextStyles.titleLarge,
       titleMedium: AppTextStyles.titleMedium,
       displaySmall: AppTextStyles.displaySmall,
@@ -30,8 +30,9 @@ class TextThemes {
   /// Light text theme
   static TextTheme get lightTextTheme {
     return const TextTheme(
-      labelLarge: AppTextStyles.labelLarge,
-      labelMedium: AppTextStyles.labelMedium,
+      labelLarge: AppTextStyles.labelMediumBold, // Updated
+      labelMedium: AppTextStyles.labelMediumRegular, // Updated
+      labelSmall: AppTextStyles.labelSmallBold, // Updated
       titleLarge: AppTextStyles.titleLarge,
       titleMedium: AppTextStyles.titleMedium,
       displaySmall: AppTextStyles.displaySmall,

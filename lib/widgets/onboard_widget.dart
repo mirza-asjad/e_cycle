@@ -33,12 +33,12 @@ class OnboardingPage extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
         ),
-        const SizedBox(height: 10),
+        const SizedBox(height: 1),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
           child: Text(
             description,
-            style: AppTextStyles.titleLarge,
+            style: AppTextStyles.titleMedium.copyWith(fontSize: 21),
             textAlign: TextAlign.center,
           ),
         ),

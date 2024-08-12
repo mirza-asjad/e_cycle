@@ -47,9 +47,9 @@ class SplashScreenView extends GetView<SplashScreenController> {
                     onPressed: () {
                       Get.offNamed(Routes.ONBOARDING_SCREEN);
                     },
-                    child: const Text(
+                    child: Text(
                       'Get Started',
-                      style: AppTextStyles.titleLarge,
+                      style: AppTextStyles.labelMediumRegular.copyWith(fontSize: 21),
                     ),
                   ),
                 ),
@@ -59,17 +59,15 @@ class SplashScreenView extends GetView<SplashScreenController> {
                   children: [
                     Text(
                       'Already have an account? ',
-                      style: AppTextStyles.labelLarge
-                          .copyWith(fontWeight: FontWeight.w400),
+                      style: AppTextStyles.labelMediumRegular.copyWith(fontSize: 15),
                     ),
                     GestureDetector(
                       onTap: () {
                         Get.offNamed(Routes.AUTH_SCREEN);
                       },
-                      child: Text(
-                        'Log in',
-                        style: AppTextStyles.labelLargeBold,
-                      ),
+                      child: Text('Log in',
+                          style: AppTextStyles.labelSmallSemiBold.copyWith(
+                              fontSize: 15, fontWeight: FontWeight.w600)),
                     ),
                   ],
                 )

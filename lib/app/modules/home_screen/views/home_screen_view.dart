@@ -2,10 +2,12 @@ import 'package:e_cycle/app/routes/app_pages.dart';
 import 'package:e_cycle/config/app_colors.dart';
 import 'package:e_cycle/config/app_fonts.dart';
 import 'package:e_cycle/config/app_images.dart';
+import 'package:e_cycle/config/app_text_style.dart';
 import 'package:e_cycle/widgets/drawer.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../controllers/home_screen_controller.dart';
 
 class HomeScreenView extends GetView<HomeScreenController> {
@@ -84,16 +86,12 @@ class HomeScreenView extends GetView<HomeScreenController> {
   }
 
   Widget _buildGreetingText() {
-    return const Column(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Hello John',
-          style: TextStyle(
-              color: AppColors.BUTTON_COLOR,
-              fontSize: 32,
-              fontWeight: FontWeight.bold,
-              fontFamily: AppFonts.MONTSERRAT_SEMIBOLD),
+          'Hello John,',
+          style: AppTextStyles.extraTitleLarge.copyWith(fontSize: 32),
         ),
         Text(
           'Wanna take a ride today?',

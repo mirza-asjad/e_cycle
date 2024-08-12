@@ -1,44 +1,100 @@
 import 'package:e_cycle/config/app_colors.dart';
-import 'package:e_cycle/config/app_fonts.dart';
 import 'package:flutter/material.dart';
 
 class AppTextStyles {
+  // Extra Large Title
   static const TextStyle extraTitleLarge = TextStyle(
-      fontSize: 32,
-      fontFamily: AppFonts.MONTSERRAT_SEMIBOLD,
-      color: AppColors.BUTTON_COLOR,
-      fontWeight: FontWeight.bold);
+    fontSize: 32,
+    fontFamily: 'Montserrat',
+    color: AppColors.BUTTON_COLOR,
+    fontWeight: FontWeight.w600, // SemiBold
+  );
+
+  // Large Title
   static const TextStyle titleLarge = TextStyle(
-      color: AppColors.BUTTON_COLOR,
-      fontSize: 21,
-      fontFamily: AppFonts.MONTSERRAT_REGULAR,
-      fontWeight: FontWeight.normal);
+    fontSize: 21,
+    fontFamily: 'Montserrat',
+    color: AppColors.BUTTON_COLOR,
+    fontWeight: FontWeight.w400, // Regular
+  );
+
+  // Medium Title
   static const TextStyle titleMedium = TextStyle(
-      fontSize: 18,
-      fontFamily: AppFonts.MONTSERRAT_REGULAR,
-      fontWeight: FontWeight.normal);
+    fontSize: 18,
+    fontFamily: 'Montserrat',
+    color: AppColors.BUTTON_COLOR,
+    fontWeight: FontWeight.w400, // Regular
+  );
 
-  static const TextStyle labelLarge = TextStyle(
-      fontSize: 15,
-      fontWeight: FontWeight.w700,
-      fontFamily: AppFonts.MONTSERRAT_REGULAR,
-      color: AppColors.BUTTON_COLOR);
+  // Label Medium Regular
+  static const TextStyle labelMediumRegular = TextStyle(
+    fontSize: 15,
+    fontFamily: 'Montserrat',
+    fontWeight: FontWeight.w400, // Regular
+    color: AppColors.BUTTON_COLOR,
+  );
 
-  static const TextStyle labelsmallLarge = TextStyle(
-      fontSize: 15,
-      fontWeight: FontWeight.w400,
-      fontFamily: AppFonts.MONTSERRAT_REGULAR,
-      color: AppColors.BUTTON_COLOR);
-  static const TextStyle labelLargeBold = TextStyle(
-      fontSize: 15,
-      fontWeight: FontWeight.bold,
-      fontFamily: AppFonts.MONTSERRAT_EXTRABOLD,
-      color: AppColors.BUTTON_COLOR);
-  static const TextStyle labelMedium =
-      TextStyle(fontSize: 13, fontFamily: AppFonts.MONTSERRAT_REGULAR);
-  static const TextStyle labelSmall =
-      TextStyle(fontSize: 13, fontFamily: AppFonts.MONTSERRAT_BOLD);
+  // Label Medium Bold
+  static const TextStyle labelMediumBold = TextStyle(
+    fontSize: 15,
+    fontFamily: 'Montserrat',
+    fontWeight: FontWeight.w700, // Bold
+    color: AppColors.BUTTON_COLOR,
+  );
 
-  static const TextStyle displaySmall =
-      TextStyle(fontSize: 11, fontFamily: AppFonts.MONTSERRAT_SEMIBOLD);
+  // Label Medium SemiBold
+  static const TextStyle labelMediumSemiBold = TextStyle(
+    fontSize: 15,
+    fontFamily: 'Montserrat',
+    fontWeight: FontWeight.w600, // SemiBold
+    color: AppColors.BUTTON_COLOR,
+  );
+
+  // Label Medium ExtraBold
+  static const TextStyle labelMediumExtraBold = TextStyle(
+    fontSize: 15,
+    fontFamily: 'Montserrat',
+    fontWeight: FontWeight.w800, // ExtraBold
+    color: AppColors.BUTTON_COLOR,
+  );
+
+  // Label Medium Light
+  static const TextStyle labelMediumLight = TextStyle(
+    fontSize: 15,
+    fontFamily: 'Montserrat',
+    fontWeight: FontWeight.w300, // Light
+    color: AppColors.BUTTON_COLOR,
+  );
+
+  // Small Label Regular
+  static const TextStyle labelSmallRegular = TextStyle(
+    fontSize: 13,
+    fontFamily: 'Montserrat',
+    fontWeight: FontWeight.w400, // Regular
+    color: AppColors.BUTTON_COLOR,
+  );
+
+  // Small Label Bold
+  static const TextStyle labelSmallBold = TextStyle(
+    fontSize: 13,
+    fontFamily: 'Montserrat',
+    fontWeight: FontWeight.w700, // Bold
+    color: AppColors.BUTTON_COLOR,
+  );
+
+  // Small Label SemiBold
+  static const TextStyle labelSmallSemiBold = TextStyle(
+    fontSize: 13,
+    fontFamily: 'Montserrat',
+    fontWeight: FontWeight.w600, // SemiBold
+    color: AppColors.BUTTON_COLOR,
+  );
+
+  // Display Small
+  static const TextStyle displaySmall = TextStyle(
+    fontSize: 11,
+    fontFamily: 'Montserrat',
+    color: AppColors.BUTTON_COLOR,
+    fontWeight: FontWeight.w600, // SemiBold
+  );
 }

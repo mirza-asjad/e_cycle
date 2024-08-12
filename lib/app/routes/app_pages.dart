@@ -8,6 +8,8 @@ import '../modules/invite_friends_contacts_screen/bindings/invite_friends_contac
 import '../modules/invite_friends_contacts_screen/views/invite_friends_contacts_screen_view.dart';
 import '../modules/invite_friends_screen/bindings/invite_friends_screen_binding.dart';
 import '../modules/invite_friends_screen/views/invite_friends_screen_view.dart';
+import '../modules/messages_screen/bindings/messages_screen_binding.dart';
+import '../modules/messages_screen/views/messages_screen_view.dart';
 import '../modules/my_statistics_screen/bindings/my_statistics_screen_binding.dart';
 import '../modules/my_statistics_screen/views/my_statistics_screen_view.dart';
 import '../modules/my_wallet_screen/bindings/my_wallet_screen_binding.dart';
@@ -113,6 +115,11 @@ class AppPages {
       name: _Paths.SETTINGS_SCREEN,
       page: () => const SettingsScreenView(),
       binding: SettingsScreenBinding(),
+    ),
+    GetPage(
+      name: _Paths.MESSAGES_SCREEN,
+      page: () => const MessagesScreenView(),
+      binding: MessagesScreenBinding(),
     ),
   ];
 }

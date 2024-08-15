@@ -1,5 +1,6 @@
-import 'package:e_cycle/widgets/customized_textfeild.dart';
-import 'package:e_cycle/widgets/reuse_button.dart';
+import 'package:e_cycle/config/app_text_style.dart';
+import 'package:e_cycle/widgets/customized_textfield.dart';
+import 'package:e_cycle/widgets/customized_reuse_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -70,12 +71,7 @@ class SupportScreenView extends GetView<SupportScreenController> {
           const Spacer(),
           Text(
             'Support', // Updated title
-            style: TextStyle(
-              fontSize: 21,
-              fontFamily: AppFonts.MONTSERRAT_SEMIBOLD,
-              fontWeight: FontWeight.bold,
-              color: AppColors.BUTTON_COLOR.withOpacity(0.8),
-            ),
+            style: AppTextStyles.labelMediumSemiBold.copyWith(fontSize: 21),
             textAlign: TextAlign.center,
           ),
           const Spacer(),
@@ -197,7 +193,7 @@ class SupportScreenView extends GetView<SupportScreenController> {
                   ),
                   CustomTextField(
                     hintText: 'Your Message',
-                    maxLines: 5, // Adjust for multi-line input
+                    maxLines: 4, // Adjust for multi-line input
                   ),
                   const Divider(
                     color: Colors.grey, // Light grey color for the divider

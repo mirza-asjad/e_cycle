@@ -1,3 +1,4 @@
+import 'package:e_cycle/config/app_text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -6,7 +7,6 @@ import 'package:get/get.dart';
 import '../controllers/payment_screen_controller.dart';
 
 import 'package:e_cycle/config/app_colors.dart';
-import 'package:e_cycle/config/app_fonts.dart';
 import 'package:e_cycle/config/app_images.dart';
 
 class PaymentScreenView extends GetView<PaymentScreenController> {
@@ -70,12 +70,7 @@ class PaymentScreenView extends GetView<PaymentScreenController> {
           const Spacer(),
           Text(
             'Payment',
-            style: TextStyle(
-              fontSize: 21,
-              fontFamily: AppFonts.MONTSERRAT_SEMIBOLD,
-              fontWeight: FontWeight.bold,
-              color: AppColors.BUTTON_COLOR.withOpacity(0.8),
-            ),
+            style: AppTextStyles.labelMediumSemiBold.copyWith(fontSize: 21),
             textAlign: TextAlign.center,
           ),
           const Spacer(),
@@ -111,32 +106,22 @@ class PaymentScreenView extends GetView<PaymentScreenController> {
         ),
         child: Stack(
           children: [
-            const Positioned(
+            Positioned(
               bottom: 16, // Adjust the bottom position
               left: 16, // Adjust the left position
-              child: const Column(
+              child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     'Balance',
-                    style: TextStyle(
-                      color: AppColors.BUTTON_COLOR, // Adjust text color
-                      fontSize: 21, // Adjust text size
-                      fontFamily: AppFonts.MONTSERRAT_REGULAR,
-                      fontWeight:
-                          FontWeight.w400, // Adjust text weight if needed
-                    ),
+                    style:
+                        AppTextStyles.labelMediumRegular.copyWith(fontSize: 21),
                   ),
                   Text(
                     '\$10.50',
-                    style: TextStyle(
-                      color: AppColors.BUTTON_COLOR, // Adjust text color
-                      fontSize: 32, // Adjust text size
-                      fontFamily: AppFonts.MONTSERRAT_SEMIBOLD,
-                      fontWeight:
-                          FontWeight.bold, // Adjust text weight if needed
-                    ),
+                    style: AppTextStyles.labelMediumSemiBold
+                        .copyWith(fontSize: 32),
                   ),
                 ],
               ),
@@ -181,14 +166,10 @@ class PaymentScreenView extends GetView<PaymentScreenController> {
                   color: const Color(0x80F7F7F7),
                 ),
                 child: ListTile(
-                  title: const Text(
+                  title: Text(
                     'Apple Pay',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontFamily: AppFonts.MONTSERRAT_REGULAR,
-                      fontWeight: FontWeight.w400,
-                      color: AppColors.BUTTON_COLOR, // Title text color
-                    ),
+                    style:
+                        AppTextStyles.labelMediumRegular.copyWith(fontSize: 21),
                   ),
                   trailing: Row(
                     mainAxisSize:
@@ -230,14 +211,10 @@ class PaymentScreenView extends GetView<PaymentScreenController> {
                   ),
 
                   child: ListTile(
-                    title: const Text(
-                      'Payment',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w400,
-                        fontFamily: AppFonts.MONTSERRAT_REGULAR,
-                        color: AppColors.BUTTON_COLOR, // Title text color
-                      ),
+                    title: Text(
+                      'Payment Options',
+                      style: AppTextStyles.labelMediumRegular
+                          .copyWith(fontSize: 21),
                     ),
                     trailing: IconButton(
                         onPressed: () {},

@@ -1,8 +1,8 @@
+import 'package:e_cycle/config/app_text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/top_up_screen_controller.dart';
 import 'package:e_cycle/config/app_colors.dart';
-import 'package:e_cycle/config/app_fonts.dart';
 import 'package:e_cycle/config/app_images.dart';
 
 class TopUpScreenView extends GetView<TopUpScreenController> {
@@ -65,12 +65,7 @@ class TopUpScreenView extends GetView<TopUpScreenController> {
           const Spacer(),
           Text(
             'Top Up',
-            style: TextStyle(
-              fontSize: 21,
-              fontFamily: AppFonts.MONTSERRAT_SEMIBOLD,
-              fontWeight: FontWeight.bold,
-              color: AppColors.BUTTON_COLOR.withOpacity(0.8),
-            ),
+            style: AppTextStyles.labelMediumSemiBold.copyWith(fontSize: 21),
             textAlign: TextAlign.center,
           ),
           const Spacer(),
@@ -156,15 +151,17 @@ class TopUpScreenView extends GetView<TopUpScreenController> {
         child: Stack(
           children: [
             Center(
-              child: Text(
-                amount,
-                style: TextStyle(
-                  color: AppColors.BUTTON_COLOR,
-                  fontSize: 32,
-                  fontFamily: AppFonts.MONTSERRAT_SEMIBOLD,
-                  fontWeight: isActive ? FontWeight.bold : FontWeight.w200,
-                ),
-              ),
+              child: Text(amount,
+                  // style: TextStyle(
+                  //   color: AppColors.BUTTON_COLOR,
+                  //   fontSize: 32,
+                  //   fontFamily: AppFonts.MONTSERRAT_SEMIBOLD,
+                  //   fontWeight: isActive ? FontWeight.bold : FontWeight.w200,
+                  // ),
+                  style: isActive
+                      ? AppTextStyles.labelMediumSemiBold.copyWith(fontSize: 32)
+                      : AppTextStyles.labelMediumRegular
+                          .copyWith(fontSize: 32)),
             ),
             if (isActive)
               Positioned(
@@ -194,14 +191,9 @@ class TopUpScreenView extends GetView<TopUpScreenController> {
         ),
         child: Center(
           child: ListTile(
-            title: const Text(
+            title: Text(
               'MasterCard',
-              style: TextStyle(
-                fontSize: 18,
-                fontFamily: AppFonts.MONTSERRAT_REGULAR,
-                fontWeight: FontWeight.w400,
-                color: AppColors.BUTTON_COLOR,
-              ),
+              style: AppTextStyles.labelMediumRegular.copyWith(fontSize: 21),
             ),
             trailing: Row(
               mainAxisSize: MainAxisSize.min,

@@ -1,13 +1,11 @@
 import 'package:e_cycle/app/routes/app_pages.dart';
-import 'package:e_cycle/config/app_colors.dart';
-import 'package:e_cycle/config/app_fonts.dart';
 import 'package:e_cycle/config/app_images.dart';
 import 'package:e_cycle/config/app_text_style.dart';
-import 'package:e_cycle/widgets/drawer.dart';
+import 'package:e_cycle/widgets/customized_drawer.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import '../controllers/home_screen_controller.dart';
 
 class HomeScreenView extends GetView<HomeScreenController> {
@@ -91,14 +89,11 @@ class HomeScreenView extends GetView<HomeScreenController> {
       children: [
         Text(
           'Hello John,',
-          style: AppTextStyles.extraTitleLarge.copyWith(fontSize: 32),
+          style: AppTextStyles.labelMediumSemiBold.copyWith(fontSize: 32),
         ),
         Text(
           'Wanna take a ride today?',
-          style: TextStyle(
-              color: AppColors.BUTTON_COLOR,
-              fontSize: 18,
-              fontFamily: AppFonts.MONTSERRAT_REGULAR),
+          style: AppTextStyles.labelMediumRegular.copyWith(fontSize: 18),
         ),
       ],
     );
@@ -129,7 +124,7 @@ class HomeScreenView extends GetView<HomeScreenController> {
                     fit: BoxFit.cover,
                   ),
                   const SizedBox(width: 20),
-                  const Expanded(
+                  Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -140,25 +135,22 @@ class HomeScreenView extends GetView<HomeScreenController> {
                           children: [
                             Text(
                               '18°',
-                              style: TextStyle(
+                              style: AppTextStyles.labelMediumRegular.copyWith(
                                 fontSize: 32,
-                                fontFamily: AppFonts.MONTSERRAT_REGULAR,
                               ),
                             ),
                             Text(
                               ' Cloudy',
-                              style: TextStyle(
+                              style: AppTextStyles.labelMediumRegular.copyWith(
                                 fontSize: 18,
-                                fontWeight: FontWeight.w300,
                               ),
                             ),
                           ],
                         ),
                         Text(
                           'Marbella Dr',
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w300,
+                          style: AppTextStyles.labelMediumRegular.copyWith(
+                            fontSize: 18,
                           ),
                         ),
                       ],
@@ -182,14 +174,10 @@ class HomeScreenView extends GetView<HomeScreenController> {
                     topRight: Radius.circular(30),
                   ),
                 ),
-                child: const Center(
+                child: Center(
                   child: Text(
                     '28 September, Wednesday',
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: AppColors.BUTTON_COLOR,
-                      fontFamily: AppFonts.MONTSERRAT_MEDIUM,
-                    ),
+                    style: AppTextStyles.labelMediumRegular.copyWith(),
                   ),
                 ),
               ),
@@ -201,24 +189,22 @@ class HomeScreenView extends GetView<HomeScreenController> {
   }
 
   Widget _buildNearbySection() {
-    return const Row(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
           'Near You',
-          style: TextStyle(
-              fontSize: 21,
-              fontFamily: AppFonts.MONTSERRAT_SEMIBOLD,
-              fontWeight: FontWeight.bold),
+          style: AppTextStyles.labelMediumSemiBold.copyWith(
+            fontSize: 21,
+          ),
         ),
         Row(
           children: [
             Text(
               'Browse Map',
-              style: TextStyle(
-                  fontSize: 18,
-                  fontFamily: AppFonts.MONTSERRAT_REGULAR,
-                  fontWeight: FontWeight.w300),
+              style: AppTextStyles.labelMediumRegular.copyWith(
+                fontSize: 18,
+              ),
             ),
             Icon(Icons.arrow_forward_ios_rounded)
           ],
@@ -278,26 +264,24 @@ class HomeScreenView extends GetView<HomeScreenController> {
                               borderRadius: BorderRadius.circular(
                                   24), // Set border radius
                             ),
-                            child: const Center(
+                            child: Center(
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text(
                                     'Distance ',
                                     textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                        color: AppColors.BUTTON_COLOR,
-                                        fontSize: 13,
-                                        fontFamily: AppFonts.MONTSERRAT_MEDIUM),
+                                    style: AppTextStyles.labelMediumRegular
+                                        .copyWith(
+                                      fontSize: 13,
+                                    ),
                                   ),
                                   Text(
                                     '150 M',
                                     textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                      color: AppColors.BUTTON_COLOR,
+                                    style: AppTextStyles.labelMediumSemiBold
+                                        .copyWith(
                                       fontSize: 21,
-                                      fontFamily: AppFonts.MONTSERRAT_SEMIBOLD,
-                                      fontWeight: FontWeight.bold,
                                     ),
                                   ),
                                 ],
@@ -307,7 +291,7 @@ class HomeScreenView extends GetView<HomeScreenController> {
                         ),
                         const SizedBox(
                             height: 10), // Space between button and text
-                        const Padding(
+                        Padding(
                           padding: EdgeInsets.only(
                               left: 16, right: 16), // Match padding of button
                           child: Column(
@@ -315,20 +299,15 @@ class HomeScreenView extends GetView<HomeScreenController> {
                             children: [
                               Text(
                                 'Haibike Sduro FullSeven',
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  color: AppColors.BUTTON_COLOR,
-                                  fontFamily: AppFonts.MONTSERRAT_REGULAR,
-                                ),
+                                style: AppTextStyles.labelSmallRegular
+                                    .copyWith(fontSize: 16),
                               ),
                               SizedBox(height: 4), // Space between lines
                               Text(
                                 '2 Available',
-                                style: TextStyle(
+                                style:
+                                    AppTextStyles.labelMediumSemiBold.copyWith(
                                   fontSize: 18,
-                                  color: AppColors.BUTTON_COLOR,
-                                  fontFamily: AppFonts.MONTSERRAT_BOLD,
-                                  fontWeight: FontWeight.bold,
                                 ),
                               ),
                             ],

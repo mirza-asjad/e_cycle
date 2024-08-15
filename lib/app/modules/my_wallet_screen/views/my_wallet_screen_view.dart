@@ -1,3 +1,4 @@
+import 'package:e_cycle/config/app_text_style.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -6,7 +7,6 @@ import '../controllers/my_wallet_screen_controller.dart';
 
 import 'package:e_cycle/app/routes/app_pages.dart';
 import 'package:e_cycle/config/app_colors.dart';
-import 'package:e_cycle/config/app_fonts.dart';
 import 'package:e_cycle/config/app_images.dart';
 
 class MyWalletScreenView extends GetView<MyWalletScreenController> {
@@ -58,7 +58,7 @@ class MyWalletScreenView extends GetView<MyWalletScreenController> {
           Padding(
             padding: const EdgeInsets.only(left: 12),
             child: IconButton(
-              icon: Icon(
+              icon: const Icon(
                 Icons.arrow_back_rounded,
                 color: AppColors.BUTTON_COLOR,
                 size: 32,
@@ -71,16 +71,11 @@ class MyWalletScreenView extends GetView<MyWalletScreenController> {
           const Spacer(),
           Text(
             'My Wallet',
-            style: TextStyle(
-              fontSize: 21,
-              fontFamily: AppFonts.MONTSERRAT_SEMIBOLD,
-              fontWeight: FontWeight.bold,
-              color: AppColors.BUTTON_COLOR.withOpacity(0.8),
-            ),
+            style: AppTextStyles.labelMediumSemiBold.copyWith(fontSize: 21),
             textAlign: TextAlign.center,
           ),
           const Spacer(),
-          SizedBox(width: 52),
+          const SizedBox(width: 52),
         ],
       ),
     );
@@ -102,7 +97,7 @@ class MyWalletScreenView extends GetView<MyWalletScreenController> {
               color: Colors.black.withOpacity(0.1),
               spreadRadius: 2,
               blurRadius: 8,
-              offset: Offset(0, 2),
+              offset: const Offset(0, 2),
             ),
           ],
         ),
@@ -119,7 +114,7 @@ class MyWalletScreenView extends GetView<MyWalletScreenController> {
                   Container(
                     width: 315, // 50% of 350
                     height: double.infinity,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       image: DecorationImage(
                         image: AssetImage(AppImages
                             .CIRCULAR_GRADIENT), // Replace with actual image path
@@ -142,7 +137,7 @@ class MyWalletScreenView extends GetView<MyWalletScreenController> {
               child: Container(
                 width: 159, // Adjust size as needed
                 height: 134, // Adjust size as needed
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage(AppImages
                         .RIDER_IMAGE), // Replace with actual image path
@@ -164,22 +159,14 @@ class MyWalletScreenView extends GetView<MyWalletScreenController> {
                   children: [
                     Text(
                       'Weekly Pass',
-                      style: TextStyle(
-                        color: AppColors.BUTTON_COLOR,
-                        fontSize: 14,
-                        fontFamily: AppFonts.MONTSERRAT_LIGHT,
-                        fontWeight: FontWeight.w300,
-                      ),
+                      style:
+                          AppTextStyles.labelMediumLight.copyWith(fontSize: 16),
                     ),
                     SizedBox(height: 4),
                     Text(
                       '\$24.99',
-                      style: TextStyle(
-                        color: AppColors.BUTTON_COLOR,
-                        fontSize: 20,
-                        fontFamily: AppFonts.MONTSERRAT_SEMIBOLD,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: AppTextStyles.labelMediumSemiBold
+                          .copyWith(fontSize: 20),
                     ),
                   ],
                 ),
@@ -193,7 +180,7 @@ class MyWalletScreenView extends GetView<MyWalletScreenController> {
                 width: 131, // Adjust width as needed
                 height: 40, // Adjust height as needed
                 decoration: BoxDecoration(
-                  gradient: LinearGradient(
+                  gradient: const LinearGradient(
                     colors: [
                       Color(0xFF2AF598), // Gradient color
                       Color(0xFF009EFD), // Gradient color
@@ -206,12 +193,8 @@ class MyWalletScreenView extends GetView<MyWalletScreenController> {
                 child: Center(
                   child: Text(
                     'Purchase',
-                    style: TextStyle(
-                      color: AppColors.BUTTON_COLOR,
-                      fontSize: 15,
-                      fontFamily: AppFonts.MONTSERRAT_SEMIBOLD,
-                      fontWeight: FontWeight.w600,
-                    ),
+                    style: AppTextStyles.labelMediumSemiBold
+                        .copyWith(fontSize: 15),
                   ),
                 ),
               ),
@@ -237,7 +220,7 @@ class MyWalletScreenView extends GetView<MyWalletScreenController> {
         ),
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 160,
             ),
             Padding(
@@ -246,26 +229,19 @@ class MyWalletScreenView extends GetView<MyWalletScreenController> {
                 // Background color for the ListTile
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12.0),
-                  color: Color(0x80F7F7F7),
+                  color: const Color(0x80F7F7F7),
                 ),
 
                 child: ListTile(
                   title: Text(
                     'Balance',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w400,
-                      color: AppColors.BUTTON_COLOR, // Title text color
-                    ),
+                    style:
+                        AppTextStyles.labelMediumRegular.copyWith(fontSize: 21),
                   ),
                   subtitle: Text(
                     '\$24.99',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w900,
-                      fontFamily: AppFonts.MONTSERRAT_BOLD,
-                      color: AppColors.BUTTON_COLOR, // Title text color
-                    ),
+                    style: AppTextStyles.labelMediumSemiBold
+                        .copyWith(fontSize: 21),
                   ),
                   trailing: GestureDetector(
                     onTap: () => Get.toNamed(Routes.TOP_UP_SCREEN),
@@ -273,18 +249,14 @@ class MyWalletScreenView extends GetView<MyWalletScreenController> {
                       width: 114, // Adjust width as needed
                       height: 40, // Adjust height as needed
                       decoration: BoxDecoration(
-                        color: Color(0x1FB0B0B0),
+                        color: const Color(0x1FB0B0B0),
                         borderRadius: BorderRadius.circular(12.0),
                       ),
                       child: Center(
                         child: Text(
                           'Top Up',
-                          style: TextStyle(
-                            color: AppColors.BUTTON_COLOR, // Button text color
-                            fontFamily: AppFonts.MONTSERRAT_SEMIBOLD,
-                            fontWeight: FontWeight.w800,
-                            fontSize: 15, // Adjust font size as needed
-                          ),
+                          style: AppTextStyles.labelMediumSemiBold
+                              .copyWith(fontSize: 15),
                         ),
                       ),
                     ),
@@ -293,7 +265,7 @@ class MyWalletScreenView extends GetView<MyWalletScreenController> {
               ),
             ),
 
-            SizedBox(
+            const SizedBox(
               height: 16,
             ),
 
@@ -303,24 +275,20 @@ class MyWalletScreenView extends GetView<MyWalletScreenController> {
                   // Background color for the ListTile
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12.0),
-                    color: Color(0x80F7F7F7),
+                    color: const Color(0x80F7F7F7),
                   ),
 
                   child: ListTile(
                     title: Text(
                       'Payment',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontFamily: AppFonts.MONTSERRAT_REGULAR,
-                        fontWeight: FontWeight.w400,
-                        color: AppColors.BUTTON_COLOR, // Title text color
-                      ),
+                      style: AppTextStyles.labelMediumRegular
+                          .copyWith(fontSize: 21),
                     ),
                     trailing: IconButton(
                         onPressed: () {
                           Get.toNamed(Routes.PAYMENT_SCREEN);
                         },
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.arrow_forward_ios_rounded,
                           color: AppColors.BUTTON_COLOR,
                         )),

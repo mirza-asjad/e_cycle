@@ -1,6 +1,5 @@
+import 'package:e_cycle/config/app_text_style.dart';
 import 'package:flutter/material.dart';
-import 'package:e_cycle/config/app_colors.dart';
-import 'package:e_cycle/config/app_fonts.dart';
 
 class CustomTextField extends StatelessWidget {
   final String hintText;
@@ -21,18 +20,10 @@ class CustomTextField extends StatelessWidget {
       maxLines: maxLines,
       decoration: InputDecoration(
         hintText: hintText,
-        hintStyle: const TextStyle(
-          color: AppColors.BUTTON_COLOR,
-          fontFamily: AppFonts.MONTSERRAT_REGULAR,
-          fontSize: 18,
-        ),
+        hintStyle: AppTextStyles.labelMediumRegular.copyWith(fontSize: 21),
         border: InputBorder.none,
       ),
-      style: const TextStyle(
-        color: AppColors.BUTTON_COLOR,
-        fontFamily: AppFonts.MONTSERRAT_REGULAR,
-        fontSize: 16,
-      ),
+      style: AppTextStyles.labelMediumRegular.copyWith(fontSize: 21),
     );
   }
 }

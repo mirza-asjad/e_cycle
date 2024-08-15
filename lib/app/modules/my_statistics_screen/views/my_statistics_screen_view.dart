@@ -1,10 +1,10 @@
-import 'package:e_cycle/widgets/reuse_button.dart';
+import 'package:e_cycle/config/app_text_style.dart';
+import 'package:e_cycle/widgets/customized_reuse_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../controllers/my_statistics_screen_controller.dart';
 import 'package:e_cycle/config/app_colors.dart';
-import 'package:e_cycle/config/app_fonts.dart';
 import 'package:e_cycle/config/app_images.dart';
 
 class MyStatisticsScreenView extends GetView<MyStatisticsScreenController> {
@@ -74,12 +74,7 @@ class MyStatisticsScreenView extends GetView<MyStatisticsScreenController> {
           const Spacer(),
           Text(
             'My Statistics',
-            style: TextStyle(
-              fontSize: 21,
-              fontFamily: AppFonts.MONTSERRAT_SEMIBOLD,
-              fontWeight: FontWeight.bold,
-              color: AppColors.BUTTON_COLOR.withOpacity(0.8),
-            ),
+            style: AppTextStyles.labelMediumSemiBold.copyWith(fontSize: 21),
             textAlign: TextAlign.center,
           ),
           const Spacer(),
@@ -134,12 +129,8 @@ class MyStatisticsScreenView extends GetView<MyStatisticsScreenController> {
                 children: [
                   Text(
                     text,
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontFamily: AppFonts.MONTSERRAT_REGULAR,
-                      fontWeight: FontWeight.w300,
-                      color: AppColors.BUTTON_COLOR,
-                    ),
+                    style:
+                        AppTextStyles.labelMediumRegular.copyWith(fontSize: 18),
                   ),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.baseline,
@@ -152,12 +143,8 @@ class MyStatisticsScreenView extends GetView<MyStatisticsScreenController> {
                         baselineType: TextBaseline.alphabetic,
                         child: Text(
                           subtext,
-                          style: TextStyle(
-                            fontSize: 32,
-                            fontFamily: AppFonts.MONTSERRAT_SEMIBOLD,
-                            fontWeight: FontWeight.w400,
-                            color: AppColors.BUTTON_COLOR,
-                          ),
+                          style: AppTextStyles.labelMediumSemiBold
+                              .copyWith(fontSize: 32),
                         ),
                       ),
                       const SizedBox(
@@ -168,12 +155,8 @@ class MyStatisticsScreenView extends GetView<MyStatisticsScreenController> {
                         baselineType: TextBaseline.alphabetic,
                         child: Text(
                           subtitletext,
-                          style: TextStyle(
-                            fontSize: 12,
-                            fontFamily: AppFonts.MONTSERRAT_SEMIBOLD,
-                            fontWeight: FontWeight.w800,
-                            color: AppColors.BUTTON_COLOR,
-                          ),
+                          style: AppTextStyles.labelMediumSemiBold
+                              .copyWith(fontSize: 18),
                         ),
                       ),
                     ],
@@ -202,9 +185,9 @@ class MyStatisticsScreenView extends GetView<MyStatisticsScreenController> {
         ),
         child: Column(
           children: [
-            Spacer(),
+            const Spacer(),
             ReuseButtonWidget(text: 'Share', onPressed: () {}),
-            SizedBox(
+            const SizedBox(
               height: 20,
             )
           ],

@@ -1,3 +1,4 @@
+import 'package:e_cycle/config/app_text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -155,24 +156,14 @@ class MessagesScreenView extends GetView<MessagesScreenController> {
           children: [
             Text(
               message,
-              style: TextStyle(
-                color: isSentByUser ? Colors.white : Colors.black,
-                fontFamily: AppFonts.MONTSERRAT_REGULAR,
-                fontSize: 16,
-              ),
+              style: AppTextStyles.labelMediumRegular,
             ),
             const SizedBox(height: 4),
             Align(
               alignment: Alignment.bottomRight,
               child: Text(
                 time,
-                style: TextStyle(
-                  color: isSentByUser
-                      ? Colors.white.withOpacity(0.7)
-                      : Colors.black.withOpacity(0.7),
-                  fontFamily: AppFonts.MONTSERRAT_REGULAR,
-                  fontSize: 12,
-                ),
+                style: AppTextStyles.labelMediumRegular.copyWith(fontSize: 13),
               ),
             ),
           ],

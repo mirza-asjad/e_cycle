@@ -1,8 +1,8 @@
+import 'package:e_cycle/config/app_text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/settings_screen_controller.dart';
 import 'package:e_cycle/config/app_colors.dart';
-import 'package:e_cycle/config/app_fonts.dart';
 
 class SettingsScreenView extends GetView<SettingsScreenController> {
   const SettingsScreenView({Key? key}) : super(key: key);
@@ -64,12 +64,7 @@ class SettingsScreenView extends GetView<SettingsScreenController> {
           const Spacer(),
           Text(
             'Settings',
-            style: TextStyle(
-              fontSize: 21,
-              fontFamily: AppFonts.MONTSERRAT_SEMIBOLD,
-              fontWeight: FontWeight.bold,
-              color: AppColors.BUTTON_COLOR.withOpacity(0.8),
-            ),
+            style: AppTextStyles.labelMediumSemiBold.copyWith(fontSize: 21),
             textAlign: TextAlign.center,
           ),
           const Spacer(),
@@ -114,21 +109,11 @@ class SettingsScreenView extends GetView<SettingsScreenController> {
         child: ListTile(
           title: Text(
             title,
-            style: TextStyle(
-              fontSize: 18,
-              fontFamily: AppFonts.MONTSERRAT_REGULAR,
-              fontWeight: FontWeight.w300,
-              color: AppColors.BUTTON_COLOR,
-            ),
+            style: AppTextStyles.labelMediumRegular.copyWith(fontSize: 21),
           ),
           subtitle: Text(
             subtitle,
-            style: TextStyle(
-              fontSize: 18,
-              fontFamily: AppFonts.MONTSERRAT_REGULAR,
-              fontWeight: FontWeight.w900,
-              color: AppColors.BUTTON_COLOR,
-            ),
+            style: AppTextStyles.labelMediumSemiBold.copyWith(fontSize: 21),
           ),
           trailing: IconButton(
               onPressed: () {},
@@ -148,12 +133,7 @@ class SettingsScreenView extends GetView<SettingsScreenController> {
         child: ListTile(
           title: Text(
             title,
-            style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.w300,
-              fontFamily: AppFonts.MONTSERRAT_REGULAR,
-              color: AppColors.BUTTON_COLOR,
-            ),
+            style: AppTextStyles.labelMediumRegular.copyWith(fontSize: 21),
           ),
           trailing: Obx(
             () => Switch(
@@ -162,7 +142,7 @@ class SettingsScreenView extends GetView<SettingsScreenController> {
                 switchValue.value = value;
               },
               activeColor: Colors.white,
-              activeTrackColor: Color.fromARGB(255, 118, 214, 166),
+              activeTrackColor: const Color.fromARGB(255, 118, 214, 166),
               inactiveThumbColor: Colors.grey,
               inactiveTrackColor: Colors.white,
             ),

@@ -1,6 +1,5 @@
 import 'package:e_cycle/app/routes/app_pages.dart';
-import 'package:e_cycle/config/app_colors.dart';
-import 'package:e_cycle/config/app_fonts.dart';
+import 'package:e_cycle/config/app_text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:e_cycle/config/app_images.dart';
 import 'package:get/get.dart'; // Import GetX for routing
@@ -50,13 +49,10 @@ class CustomDrawer extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 16), // Space between image and text
-                const Text(
+                Text(
                   'John Doe',
-                  style: TextStyle(
-                    color: AppColors.BUTTON_COLOR,
-                    fontFamily: AppFonts.MONTSERRAT_REGULAR,
-                    fontSize: 21,
-                  ),
+                  style:
+                      AppTextStyles.labelMediumRegular.copyWith(fontSize: 21),
                 ),
               ],
             ),
@@ -75,7 +71,7 @@ class CustomDrawer extends StatelessWidget {
                     // Drawer items
                     _buildDrawerTile('My Wallet', '\$10.50'),
                     const SizedBox(height: 16), // Space between tiles
-                    _buildDrawerTile('My Statics', ''),
+                    _buildDrawerTile('My Statistics', ''),
                     const SizedBox(height: 16), // Space between tiles
                     _buildDrawerTile('Invite Friends', ''),
                     const SizedBox(height: 16), // Space between tiles
@@ -102,14 +98,10 @@ class CustomDrawer extends StatelessWidget {
                             width: 24,
                             height: 24,
                           ),
-                          title: const Text(
+                          title: Text(
                             'Logout',
-                            style: TextStyle(
-                              color: AppColors.BUTTON_COLOR,
-                              fontFamily: AppFonts.MONTSERRAT_REGULAR,
-                              fontSize: 18,
-                              fontWeight: FontWeight.w300,
-                            ),
+                            style: AppTextStyles.labelMediumRegular
+                                .copyWith(fontSize: 21),
                           ),
                           onTap: () {
                             // Handle logout action
@@ -139,21 +131,12 @@ class CustomDrawer extends StatelessWidget {
       child: ListTile(
         title: Text(
           title,
-          style: TextStyle(
-            color: AppColors.BUTTON_COLOR,
-            fontFamily: AppFonts.MONTSERRAT_REGULAR,
-            fontWeight: FontWeight.w300,
-            fontSize: 18,
-          ),
+          style: AppTextStyles.labelMediumRegular.copyWith(fontSize: 21),
         ),
         trailing: trailingText.isNotEmpty
             ? Text(
                 trailingText,
-                style: TextStyle(
-                    color: AppColors.BUTTON_COLOR,
-                    fontFamily: AppFonts.MONTSERRAT_REGULAR,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold),
+                style: AppTextStyles.labelMediumSemiBold.copyWith(fontSize: 21),
               )
             : null,
         onTap: () {

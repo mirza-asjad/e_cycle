@@ -1,11 +1,11 @@
 import 'package:e_cycle/app/routes/app_pages.dart';
-import 'package:e_cycle/widgets/reuse_button.dart';
+import 'package:e_cycle/config/app_text_style.dart';
+import 'package:e_cycle/widgets/customized_reuse_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../controllers/invite_friends_screen_controller.dart';
 import 'package:e_cycle/config/app_colors.dart';
-import 'package:e_cycle/config/app_fonts.dart';
 import 'package:e_cycle/config/app_images.dart';
 
 class InviteFriendsScreenView extends GetView<InviteFriendsScreenController> {
@@ -73,12 +73,7 @@ class InviteFriendsScreenView extends GetView<InviteFriendsScreenController> {
           const Spacer(),
           Text(
             'Invite Friends',
-            style: TextStyle(
-              fontSize: 21,
-              fontFamily: AppFonts.MONTSERRAT_SEMIBOLD,
-              fontWeight: FontWeight.bold,
-              color: AppColors.BUTTON_COLOR.withOpacity(0.8),
-            ),
+            style: AppTextStyles.labelMediumSemiBold.copyWith(fontSize: 21),
             textAlign: TextAlign.center,
           ),
           const Spacer(),
@@ -123,7 +118,7 @@ class InviteFriendsScreenView extends GetView<InviteFriendsScreenController> {
               child: Container(
                 width: 100, // Width of the container
                 height: 105, // Height of the container
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color:
                       Colors.transparent, // Background color of the container
                 ),
@@ -144,7 +139,7 @@ class InviteFriendsScreenView extends GetView<InviteFriendsScreenController> {
               child: Container(
                 width: 164, // Width of the container
                 height: 160, // Height of the container
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color:
                       Colors.transparent, // Background color of the container
                 ),
@@ -157,33 +152,23 @@ class InviteFriendsScreenView extends GetView<InviteFriendsScreenController> {
               ),
             ),
             // Text at the bottom
-            const Positioned(
+            Positioned(
               bottom: 16, // Adjust the bottom position
-              left: 30, // Adjust the left position
+              left: 20, // Adjust the left position
               child: Center(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
                       'Your Invitation Code',
-                      style: TextStyle(
-                        color: AppColors.BUTTON_COLOR, // Adjust text color
-                        fontSize: 21, // Adjust text size
-                        fontFamily: AppFonts.MONTSERRAT_REGULAR,
-                        fontWeight:
-                            FontWeight.w200, // Adjust text weight if needed
-                      ),
+                      style: AppTextStyles.labelMediumRegular
+                          .copyWith(fontSize: 18),
                     ),
                     Text(
                       'KD08CS2006',
-                      style: TextStyle(
-                        color: AppColors.BUTTON_COLOR, // Adjust text color
-                        fontSize: 32, // Adjust text size
-                        fontFamily: AppFonts.MONTSERRAT_SEMIBOLD,
-                        fontWeight:
-                            FontWeight.bold, // Adjust text weight if needed
-                      ),
+                      style: AppTextStyles.labelMediumSemiBold
+                          .copyWith(fontSize: 32),
                     ),
                   ],
                 ),
@@ -215,9 +200,11 @@ class InviteFriendsScreenView extends GetView<InviteFriendsScreenController> {
             const SizedBox(
               height: 10,
             ),
-            ReuseButtonWidget(text: 'Contacts', onPressed: () {
-              Get.toNamed(Routes.INVITE_FRIENDS_CONTACTS_SCREEN);
-            }),
+            ReuseButtonWidget(
+                text: 'Contacts',
+                onPressed: () {
+                  Get.toNamed(Routes.INVITE_FRIENDS_CONTACTS_SCREEN);
+                }),
             const SizedBox(
               height: 40,
             )

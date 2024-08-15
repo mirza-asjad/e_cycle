@@ -1,7 +1,7 @@
 import 'package:e_cycle/config/app_colors.dart';
 import 'package:e_cycle/config/app_images.dart';
 import 'package:e_cycle/config/app_text_style.dart';
-import 'package:e_cycle/widgets/onboard_widget.dart';
+import 'package:e_cycle/widgets/customized_onboard_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/onboarding_screen_controller.dart';

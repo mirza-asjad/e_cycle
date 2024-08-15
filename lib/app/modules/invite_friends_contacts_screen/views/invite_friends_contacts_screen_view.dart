@@ -1,15 +1,16 @@
+import 'package:e_cycle/config/app_text_style.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
 import 'package:get/get.dart';
 
 import '../controllers/invite_friends_contacts_screen_controller.dart';
 import 'package:e_cycle/config/app_colors.dart';
-import 'package:e_cycle/config/app_fonts.dart';
+
 import 'package:e_cycle/config/app_images.dart';
 
 class InviteFriendsContactsScreenView
     extends GetView<InviteFriendsContactsScreenController> {
-  const InviteFriendsContactsScreenView({Key? key}) : super(key: key);
+  const InviteFriendsContactsScreenView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -67,12 +68,7 @@ class InviteFriendsContactsScreenView
           const Spacer(),
           Text(
             'Invite Contacts',
-            style: TextStyle(
-              fontSize: 21,
-              fontFamily: AppFonts.MONTSERRAT_SEMIBOLD,
-              fontWeight: FontWeight.bold,
-              color: AppColors.BUTTON_COLOR.withOpacity(0.8),
-            ),
+            style: AppTextStyles.labelMediumSemiBold.copyWith(fontSize: 21),
             textAlign: TextAlign.center,
           ),
           const Spacer(),
@@ -121,15 +117,10 @@ class InviteFriendsContactsScreenView
           padding: const EdgeInsets.only(top: 26, left: 10),
           child: Text(
             heading,
-            style: TextStyle(
-              fontSize: 21,
-              fontWeight: FontWeight.w300,
-              fontFamily: AppFonts.MONTSERRAT_REGULAR,
-              color: AppColors.BUTTON_COLOR,
-            ),
+            style: AppTextStyles.labelMediumRegular.copyWith(fontSize: 21),
           ),
         ),
-        SizedBox(height: 12), // Add spacing between heading and contacts
+        const SizedBox(height: 12), // Add spacing between heading and contacts
         ...contactTiles,
       ],
     );
@@ -144,10 +135,7 @@ class InviteFriendsContactsScreenView
       ),
       title: Text(
         name,
-        style: TextStyle(
-          fontFamily: AppFonts.MONTSERRAT_REGULAR,
-          fontSize: 18,
-        ),
+        style: AppTextStyles.labelMediumRegular.copyWith(fontSize: 18),
       ),
       trailing: GestureDetector(
         onTap: () {
@@ -157,7 +145,7 @@ class InviteFriendsContactsScreenView
           height: 32,
           width: 80,
           decoration: BoxDecoration(
-            gradient: LinearGradient(
+            gradient: const LinearGradient(
               colors: [
                 Color(0xFF2AF598), // Example gradient color 1
                 Color(0xFF009EFD), // Example gradient color 2
@@ -170,12 +158,7 @@ class InviteFriendsContactsScreenView
           alignment: Alignment.center,
           child: Text(
             'Send',
-            style: TextStyle(
-              color: AppColors.BUTTON_COLOR, // Text color
-              fontFamily: AppFonts.MONTSERRAT_REGULAR,
-              fontWeight: FontWeight.bold,
-              fontSize: 12,
-            ),
+            style: AppTextStyles.labelMediumSemiBold.copyWith(fontSize: 15),
           ),
         ),
       ),

@@ -1,7 +1,7 @@
 import 'package:e_cycle/app/routes/app_pages.dart';
 import 'package:e_cycle/config/app_colors.dart';
-import 'package:e_cycle/config/app_fonts.dart';
 import 'package:e_cycle/config/app_images.dart';
+import 'package:e_cycle/config/app_text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -71,11 +71,8 @@ class SearchScreenView extends GetView<SearchScreenController> {
             tag: 'searchHeroTag',
             child: Text(
               'Search',
-              style: TextStyle(
+              style: AppTextStyles.labelMediumSemiBold.copyWith(
                 fontSize: 21,
-                fontFamily: AppFonts.MONTSERRAT_SEMIBOLD,
-                fontWeight: FontWeight.bold,
-                color: AppColors.BUTTON_COLOR.withOpacity(0.8),
               ),
               textAlign: TextAlign.center,
             ),
@@ -146,11 +143,8 @@ class SearchScreenView extends GetView<SearchScreenController> {
         const SizedBox(width: 12),
         Text(
           text,
-          style: TextStyle(
+          style: AppTextStyles.labelMediumRegular.copyWith(
             fontSize: 21,
-            fontFamily: AppFonts.MONTSERRAT_REGULAR,
-            fontWeight: FontWeight.w300,
-            color: AppColors.LIGHT_BLACK_COLOR,
           ),
         ),
       ],

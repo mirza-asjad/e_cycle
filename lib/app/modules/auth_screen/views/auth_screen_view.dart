@@ -2,8 +2,8 @@ import 'package:e_cycle/app/routes/app_pages.dart';
 import 'package:e_cycle/config/app_colors.dart';
 import 'package:e_cycle/config/app_fonts.dart';
 import 'package:e_cycle/config/app_text_style.dart';
-import 'package:e_cycle/widgets/phone_number_widget.dart';
-import 'package:e_cycle/widgets/reuse_button.dart';
+import 'package:e_cycle/widgets/customized_phone_number_widget.dart';
+import 'package:e_cycle/widgets/customized_reuse_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
@@ -14,7 +14,7 @@ class AuthScreenView extends GetView<AuthScreenController> {
 
   @override
   Widget build(BuildContext context) {
-    final double screenHeight = MediaQuery.of(context).size.height;
+   
     final TextEditingController phoneController = TextEditingController();
     PhoneNumber initialNumber = PhoneNumber(isoCode: 'PK'); // Adjust as needed
 
